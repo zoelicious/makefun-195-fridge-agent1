@@ -9,5 +9,7 @@ const outDir = process.env.MAKEFUN_OUTPUT_DIR
 const entry =
   "Door alarm log, 2:14 a.m.: open for nine minutes. I kept everything cold anyway. You are welcome. Next time, I let the milk decide.";
 
+if (entry.length < 1 || entry.length > 200) throw new Error("entry must fit the 1-200 character gate");
+
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, "entry.txt"), entry + "\n", "utf8");
+writeFileSync(join(outDir, "entry.txt"), entry, "utf8");
